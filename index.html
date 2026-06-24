@@ -2,16 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Secret Access</title>
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background: linear-gradient(135deg,#1b1f3a,#2b2f55);
     color: white;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    font-family:Arial;
+    min-height:100vh;
+    font-family:Arial, sans-serif;
+    padding: 20px;
 }
 
 .box {
@@ -19,23 +27,76 @@ body {
     background:rgba(255,255,255,0.1);
     padding:30px;
     border-radius:20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 input {
-    padding:10px;
+    width: 100%;
+    max-width: 300px;
+    padding:12px;
     border-radius:10px;
     border:none;
-    margin-top:10px;
+    margin-top:15px;
+    font-size: 16px;
 }
 
 button {
-    margin-top:10px;
-    padding:10px 15px;
+    margin-top:15px;
+    padding:12px 20px;
     border:none;
     border-radius:10px;
     background:#ff6fae;
     color:white;
     cursor:pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background: #ff4a8e;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 480px) {
+    .box {
+        padding: 25px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    input, button {
+        font-size: 14px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .box {
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    input, button {
+        padding: 10px;
+        font-size: 13px;
+    }
 }
 </style>
 </head>
@@ -44,7 +105,7 @@ button {
 
 <div class="box">
     <h2>🔐 Enter Password</h2>
-    <input type="password" id="pass">
+    <input type="password" id="pass" placeholder="Enter password...">
     <br>
     <button onclick="check()">Unlock</button>
 </div>
@@ -59,6 +120,13 @@ function check(){
         alert("Wrong password 🤍");
     }
 }
+
+// Allow Enter key to submit
+document.getElementById("pass").addEventListener("keypress", function(e) {
+    if(e.key === "Enter") {
+        check();
+    }
+});
 </script>
 
 </body>
