@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Little Piece of Zohra ✨</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #141a33, #2b2f55, #3a2f4f);
+    overflow: hidden;
+}
+
+/* DATE ✨ ROSÉ MAGIC */
+.date {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    color: #ff4f9a;
+    font-size: 14px;
+    z-index: 1000;
+
+    background: linear-gradient(135deg, rgba(255, 192, 203, 0.25), rgba(255, 182, 193, 0.10));
+    padding: 8px 14px;
+    border-radius: 16px;
+
+    border: 1px solid rgba(255, 79, 154, 0.35);
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 15px rgba(255, 79, 154, 0.25),
+        inset 0 0 10px rgba(255,255,255,0.3);
+
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    animation: glowDate 3s infinite alternate;
+}
+
+@keyframes glowDate {
+    from { box-shadow: 0 0 10px rgba(255,79,154,0.2); }
+    to { box-shadow: 0 0 25px rgba(255,79,154,0.5); }
+}
+
+/* STARS */
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    animation: float 7s infinite ease-in-out;
+    opacity: 0.6;
+}
+
+@keyframes float {
+    0% {transform: translateY(0) scale(1); opacity: 0.2;}
+    50% {transform: translateY(-120px) scale(1.4); opacity: 1;}
+    100% {transform: translateY(-240px) scale(1); opacity: 0;}
+}
+
+/* CARD */
+.card {
+    position: relative;
+    background: rgba(255,255,255,0.93);
+    width: 90%;
+    max-width: 520px;
+    margin: 70px auto;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    text-align: center;
+    animation: fadeIn 2s ease;
+}
+
+/* TITLE */
+h1 {
+    color: #444;
+    font-size: 20px;
+}
+
+/* HEART */
+.heart {
+    font-size: 42px;
+    color: #ff3d6e;
+    animation: pulse 1.2s infinite;
+    text-shadow: 0 0 20px rgba(255,61,110,0.7);
+}
+
+/* TEXT */
+.main-text {
+    color: #444;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* CENTER BOX */
+.center-box {
+    margin: 15px 0;
+    padding: 12px;
+    border-radius: 15px;
+    background: #ffffffc9;
+    border-left: 3px solid #ffd6e0;
+    border-right: 3px solid #d6e6ff;
+}
+
+/* TYPING */
+.typing {
+    color: #6aa9ff;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: linear-gradient(90deg,#ffb6c1,#a8d8ff);
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.popup-content {
+    background: white;
+    width: 85%;
+    max-width: 600px;
+    padding: 25px;
+    border-radius: 20px;
+    animation: pop 0.4s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.25);}
+    100% {transform: scale(1);}
+}
+
+@keyframes pop {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- DATE -->
+<div class="date">💗 31 Août 2025</div>
+
+<!-- STARS -->
+<script>
+for (let i = 0; i < 60; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDuration = (4 + Math.random() * 6) + "s";
+    document.body.appendChild(star);
+}
+</script>
+
+<!-- CARD -->
+<div class="card">
+
+<h1>A Little Piece of Zohra for You 🤍</h1>
+
+<div class="heart">❤️</div>
+
+<div class="typing" id="typing"></div>
+
+<div class="main-text">
+Love without reasons, without expectations, without interests.
+</div>
+
+<div class="center-box">
+“I don’t know when you’ll see this…<br>
+but I hope you’re okay when you do.<br><br>
+
+You are one of the softest souls I know, and I wanted to leave you a little place where you feel safe, loved, and remembered.”
+</div>
+
+<div style="color:#6aa9ff; font-weight:bold;">
+You matter more than you think.<br>
+Someone out there is always thinking of you — me.
+</div>
+
+<button onclick="openPopup()">Miss You 💌</button>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+
+        <h3>A hidden piece of my heart 💙</h3>
+
+        <p style="line-height:1.7; color:#444;">
+There are many words in my heart that I want to tell you, but I couldn’t..
+.<br><br>
+What I feel is too big for words.<br><br>
+It’s deep, pure, and calm 💙<br><br>
+butI try 
+to exeplain you know i dont know what's you feel if one day you see and read that 
+also I dont know the time you can to see that 
+I create that in 2026 but my heart  choose you in 
+31/08/2025 I DONT KNOW how this happened or what the resson 
+fffff even you in thailande  and  me 
+in tunise you are in my heart evreday evrysecande 
+just i hope to meet you hug you  for a long lonnnnnng time
+juste  like  that I cant say same thing more than I looove you 
+if exict woord more I say it also Since 2025 I start to learn thai languge
+for you and belive me this is not small thing belive me whene you try to do 
+samething even his small for sameone hh you know also 
+this is first time i try to exceplain my feling and I cant 
+I try to show sameone myself .....I hope whene you read that
+dont bother you or samething juste try to understand me <br><br>
+Crazy, right? 💙
+        </p>
+
+        <button onclick="closePopup()">Close ✨</button>
+    </div>
+</div>
+
+<script>
+function openPopup(){
+    document.getElementById("popup").style.display = "flex";
+}
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+/* TYPING EFFECT */
+const text = "A calm love. A pure connection. A soft place in my heart for you.";
+let i = 0;
+function typeEffect(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 60);
+    }
+}
+typeEffect();
+</script>
+
+</body>
+</html>
