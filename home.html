@@ -2,27 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Little Piece of Zohra ✨</title>
 
 <style>
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #141a33, #2b2f55, #3a2f4f);
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 /* DATE ✨ ROSÉ MAGIC */
 .date {
     position: fixed;
     top: 15px;
-    right: 20px;
+    right: 15px;
     color: #ff4f9a;
-    font-size: 14px;
+    font-size: 12px;
     z-index: 1000;
 
     background: linear-gradient(135deg, rgba(255, 192, 203, 0.25), rgba(255, 182, 193, 0.10));
-    padding: 8px 14px;
+    padding: 8px 12px;
     border-radius: 16px;
 
     border: 1px solid rgba(255, 79, 154, 0.35);
@@ -45,13 +53,14 @@ body {
 
 /* STARS */
 .star {
-    position: absolute;
+    position: fixed;
     width: 5px;
     height: 5px;
     background: white;
     border-radius: 50%;
     animation: float 7s infinite ease-in-out;
     opacity: 0.6;
+    pointer-events: none;
 }
 
 @keyframes float {
@@ -64,10 +73,10 @@ body {
 .card {
     position: relative;
     background: rgba(255,255,255,0.93);
-    width: 90%;
+    width: 100%;
     max-width: 520px;
-    margin: 70px auto;
-    padding: 30px;
+    margin: 30px auto;
+    padding: 20px;
     border-radius: 25px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     text-align: center;
@@ -77,15 +86,18 @@ body {
 /* TITLE */
 h1 {
     color: #444;
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
 /* HEART */
 .heart {
-    font-size: 42px;
+    font-size: 36px;
     color: #ff3d6e;
     animation: pulse 1.2s infinite;
     text-shadow: 0 0 20px rgba(255,61,110,0.7);
+    margin: 10px 0;
 }
 
 /* TEXT */
@@ -93,6 +105,7 @@ h1 {
     color: #444;
     margin-top: 10px;
     line-height: 1.6;
+    font-size: 14px;
 }
 
 /* CENTER BOX */
@@ -103,6 +116,9 @@ h1 {
     background: #ffffffc9;
     border-left: 3px solid #ffd6e0;
     border-right: 3px solid #d6e6ff;
+    color: #444;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 /* TYPING */
@@ -110,6 +126,9 @@ h1 {
     color: #6aa9ff;
     font-weight: bold;
     min-height: 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 10px 0;
 }
 
 /* BUTTON */
@@ -122,10 +141,16 @@ button {
     background: linear-gradient(90deg,#ffb6c1,#a8d8ff);
     color: white;
     transition: 0.3s;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 button:hover {
     transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 /* POPUP */
@@ -139,17 +164,36 @@ button:hover {
     justify-content: center;
     align-items: center;
     z-index: 10;
+    padding: 20px;
 }
 
 .popup-content {
     background: white;
-    width: 85%;
+    width: 100%;
     max-width: 600px;
-    padding: 25px;
+    padding: 20px;
     border-radius: 20px;
     animation: pop 0.4s ease;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
+}
+
+.popup-content h3 {
+    color: #444;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    color: #444;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.popup-content button {
+    width: 100%;
+    margin-top: 15px;
 }
 
 /* ANIMATIONS */
@@ -167,6 +211,81 @@ button:hover {
 @keyframes pop {
     from {transform: scale(0.7); opacity: 0;}
     to {transform: scale(1); opacity: 1;}
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    .date {
+        font-size: 11px;
+        padding: 6px 10px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .card {
+        padding: 18px;
+        margin: 20px auto;
+    }
+    
+    h1 {
+        font-size: 16px;
+    }
+    
+    .heart {
+        font-size: 32px;
+    }
+    
+    .main-text,
+    .center-box,
+    .typing {
+        font-size: 13px;
+    }
+    
+    button {
+        font-size: 13px;
+        padding: 10px 15px;
+    }
+    
+    .popup {
+        padding: 15px;
+    }
+    
+    .popup-content {
+        padding: 18px;
+        max-height: 90vh;
+    }
+    
+    .popup-content h3 {
+        font-size: 16px;
+    }
+    
+    .popup-content p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 320px) {
+    .card {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 14px;
+    }
+    
+    .heart {
+        font-size: 28px;
+    }
+    
+    .main-text,
+    .center-box,
+    .typing {
+        font-size: 12px;
+    }
 }
 </style>
 </head>
@@ -202,13 +321,13 @@ Love without reasons, without expectations, without interests.
 </div>
 
 <div class="center-box">
-“I don’t know when you’ll see this…<br>
-but I hope you’re okay when you do.<br><br>
+"I don't know when you'll see this…<br>
+but I hope you're okay when you do.<br><br>
 
-You are one of the softest souls I know, and I wanted to leave you a little place where you feel safe, loved, and remembered.”
+You are one of the softest souls I know, and I wanted to leave you a little place where you feel safe, loved, and remembered."
 </div>
 
-<div style="color:#6aa9ff; font-weight:bold;">
+<div style="color:#6aa9ff; font-weight:bold; font-size: 14px; line-height: 1.6;">
 You matter more than you think.<br>
 Someone out there is always thinking of you — me.
 </div>
@@ -223,26 +342,12 @@ Someone out there is always thinking of you — me.
 
         <h3>A hidden piece of my heart 💙</h3>
 
-        <p style="line-height:1.7; color:#444;">
-There are many words in my heart that I want to tell you, but I couldn’t..
-.<br><br>
+        <p>
+There are many words in my heart that I want to tell you, but I couldn't...<br><br>
 What I feel is too big for words.<br><br>
-It’s deep, pure, and calm 💙<br><br>
-butI try 
-to exeplain you know i dont know what's you feel if one day you see and read that 
-also I dont know the time you can to see that 
-I create that in 2026 but my heart  choose you in 
-31/08/2025 I DONT KNOW how this happened or what the resson 
-fffff even you in thailande  and  me 
-in tunise you are in my heart evreday evrysecande 
-just i hope to meet you hug you  for a long lonnnnnng time
-juste  like  that I cant say same thing more than I looove you 
-if exict woord more I say it also Since 2025 I start to learn thai languge
-for you and belive me this is not small thing belive me whene you try to do 
-samething even his small for sameone hh you know also 
-this is first time i try to exceplain my feling and I cant 
-I try to show sameone myself .....I hope whene you read that
-dont bother you or samething juste try to understand me <br><br>
+It's deep, pure, and calm 💙<br><br>
+But I try to explain... you know i don't know what you feel. If one day you see and read that, also I don't know the time you can see that. I created that in 2026 but my heart chose you on 31/08/2025. I DON'T KNOW how this happened or what the reason is... even you're in Thailand and me in Tunisia, you are in my heart every day, every second. I just hope to meet you, hug you for a long, long, long time. Just like that. I can't say anything more than "I LOVE YOU"!<br><br>
+If there were more words, I would say them too. Since 2025, I started to learn Thai language for you, and believe me this is not a small thing. Believe me, when you try to do something, even if it's small, for someone... you know? This is the first time I try to explain my feeling and I can't. I try to show someone myself. I hope when you read that, it doesn't bother you or anything. Just try to understand me.<br><br>
 Crazy, right? 💙
         </p>
 
@@ -257,6 +362,13 @@ function openPopup(){
 function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
+
+// Close popup when clicking outside
+document.getElementById("popup").addEventListener("click", function(e) {
+    if(e.target === this) {
+        closePopup();
+    }
+});
 
 /* TYPING EFFECT */
 const text = "A calm love. A pure connection. A soft place in my heart for you.";
